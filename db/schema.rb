@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150129145001) do
+ActiveRecord::Schema.define(:version => 20150129153943) do
 
   create_table "authors", :force => true do |t|
     t.string  "name"
     t.string  "twitter"
     t.integer "image_id"
+    t.string  "email"
   end
 
   create_table "comments", :force => true do |t|
