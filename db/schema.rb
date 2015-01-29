@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150129154237) do
+ActiveRecord::Schema.define(:version => 20150129154807) do
 
   create_table "authors", :force => true do |t|
     t.string  "name"
     t.string  "twitter"
     t.integer "image_id"
     t.string  "email"
+    t.text    "github"
   end
 
   create_table "comments", :force => true do |t|
@@ -47,7 +48,8 @@ ActiveRecord::Schema.define(:version => 20150129154237) do
   end
 
   create_table "tags", :force => true do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "popularity"
   end
 
 end
