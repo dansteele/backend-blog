@@ -3,19 +3,14 @@ class CreateAuthor < ActiveRecord::Migration
   def up
     create_table :authors do |t|
       t.string  :name
-      t.string  :label
-      t.text    :value
-      t.string  :type
-      t.integer :position
+      t.string  :twitter
+      t.timestamp
+      t.integer :image_id
     end
-
-    SystemSetting.create  name:  'notice',
-                          label: 'Use notice?',
-                          value: 1
   end
 
   def down
-    drop_table :system_settings
+    drop_table :authors
   end
 
 end

@@ -4,6 +4,15 @@ require 'pry'
 describe "Authors" do
 
   before do
+
+    CreateAuthor.new.up
+    CreateComment.new.up
+    CreateImage.new.up
+    CreatePost.new.up
+    CreatePostTag.new.up
+    CreateTag.new.up
+
+
     @author = Author.new(:name => "Bob", :twitter => "@bob" )
     @tag = Tag.new(:name => "Ruby")
     @post = Post.new(:body => "Hello", :title => "My first blog",
@@ -29,7 +38,7 @@ describe "Authors" do
     @tag.reload
     @post.reload
 
-    binding.pry
+    #binding.pry
   end
 
   it "deal with authors" do
@@ -37,7 +46,7 @@ describe "Authors" do
   end
 
   it "deal with comments" do
-    assert_equal 2, Comment.count
+    assert_equal 1, Comment.count
   end
 
   it "deal with images" do
@@ -50,5 +59,14 @@ describe "Authors" do
 
   it "deal with posts" do
     assert_equal 1, Post.count
+  end
+
+  after do
+    CreateAuthor.new.down
+    CreateComment.new.down
+    CreateImage.new.down
+    CreatePost.new.down
+    CreatePostTag.new.down
+    CreateTag.new.down
   end
 end

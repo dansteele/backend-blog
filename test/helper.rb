@@ -11,14 +11,21 @@ require_relative '../models/image'
 require_relative '../models/post_tag'
 require_relative '../models/tag'
 
+require_relative '../migrations/create_author'
+require_relative '../migrations/create_comment'
+require_relative '../migrations/create_image'
+require_relative '../migrations/create_post'
+require_relative '../migrations/create_post_tag'
+require_relative '../migrations/create_tags'
+
 class MiniTest::Test
   def setup
     ActiveRecord::Base.establish_connection(
       :adapter => 'sqlite3',
-      :database => 'database.db'
+      :database => './database.db'
     )
 
-    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.strategy = :truncation, { :cache_tables => false } 
     DatabaseCleaner.start
   end
 
