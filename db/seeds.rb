@@ -1,13 +1,18 @@
 require 'active_record'
-require_relative '../models/author'
+require 'pry'
+require_relative '../models/user'
 require_relative '../models/comment'
 require_relative '../models/image'
 require_relative '../models/post'
 require_relative '../models/post_tag'
 require_relative '../models/tag'
 
-author = Author.find_or_create_by_name!(:name => "Dan",
+binding.pry
+
+user = User.find_or_create_by_name(:name => "Dan",
  :twitter => "@dansteele")
 
-author << Post.find_or_create_by_name!(:title => "We got coders",
+user.posts << Post.find_or_create_by_title(:title => "We got coders",
   :body => "This place is awesome")
+
+puts "HERE IS THE POST #{user.posts}"

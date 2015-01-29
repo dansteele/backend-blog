@@ -1,7 +1,7 @@
-class CreateUser < ActiveRecord::Migration
+class CreateAuthor < ActiveRecord::Migration
 
   def up
-    create_table :users do |t|
+    create_table :authors do |t|
       t.string  :name
       t.string  :twitter
       t.timestamp
@@ -10,7 +10,7 @@ class CreateUser < ActiveRecord::Migration
   end
 
   def down
-    drop_table :users
+    drop_table :authors
   end
 
 end

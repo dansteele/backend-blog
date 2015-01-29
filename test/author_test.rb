@@ -1,11 +1,11 @@
 require_relative 'helper'
 require 'pry'
 
-describe "Users" do
+describe "Authors" do
 
   before do
 
-    CreateUser.new.up
+    CreateAuthor.new.up
     CreateComment.new.up
     CreateImage.new.up
     CreatePost.new.up
@@ -13,17 +13,17 @@ describe "Users" do
     CreateTag.new.up
 
 
-    @user = User.new(:name => "Bob", :twitter => "@bob" )
+    @author = Author.new(:name => "Bob", :twitter => "@bob" )
     @tag = Tag.new(:name => "Ruby")
     @post = Post.new(:body => "Hello", :title => "My first blog",
-      :user_id => @user.id)
+      :author_id => @author.id)
     @comment = Comment.new(:body => "This system sucks", :kudos => 0,
-      :user_id => @user.id, :post => @post)
+      :author_id => @author.id, :post => @post)
     @image = Image.new(:url => "google.com", :caption => "awesome caption",
       :filesize => 1024, :post_id => @post.id)
     
 
-    @user.save!
+    @author.save!
     @tag.save!
     @post.save!
     @comment.save!
@@ -32,7 +32,7 @@ describe "Users" do
 
     @post.tags << @tag
 
-    @user.reload
+    @author.reload
     @comment.reload
     @image.reload
     @tag.reload
@@ -41,8 +41,8 @@ describe "Users" do
     #binding.pry
   end
 
-  it "deal with users" do
-    assert_equal 1, User.count
+  it "deal with authors" do
+    assert_equal 1, Author.count
   end
 
   it "deal with comments" do
@@ -62,7 +62,7 @@ describe "Users" do
   end
 
   after do
-    CreateUser.new.down
+    CreateAuthor.new.down
     CreateComment.new.down
     CreateImage.new.down
     CreatePost.new.down
