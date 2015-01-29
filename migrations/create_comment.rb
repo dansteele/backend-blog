@@ -5,7 +5,7 @@ class CreateComment < ActiveRecord::Migration
       t.string  :body
       t.integer  :kudos
       t.timestamp
-      t.integer :author_id
+      t.integer :user_id
       t.integer :post_id
     end
   end

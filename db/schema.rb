@@ -11,15 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150129155321) do
-
-  create_table "authors", :force => true do |t|
-    t.string  "name"
-    t.string  "twitter"
-    t.integer "image_id"
-    t.string  "email"
-    t.text    "github"
-  end
+ActiveRecord::Schema.define(:version => 20150129160756) do
 
   create_table "comments", :force => true do |t|
     t.string  "body"
@@ -52,6 +44,14 @@ ActiveRecord::Schema.define(:version => 20150129155321) do
     t.string  "name"
     t.integer "popularity"
     t.text    "slug"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string  "name"
+    t.string  "twitter"
+    t.integer "image_id"
+    t.string  "email"
+    t.text    "github"
   end
 
 end

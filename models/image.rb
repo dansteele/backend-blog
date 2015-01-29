@@ -1,4 +1,4 @@
 class Image < ActiveRecord::Base
   belongs_to :post
-  has_one :author
+  has_one :user
 end
