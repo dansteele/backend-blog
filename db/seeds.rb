@@ -1,6 +1,6 @@
 require 'active_record'
 require 'pry'
-require_relative '../models/user'
+require_relative '../models/author'
 require_relative '../models/comment'
 require_relative '../models/image'
 require_relative '../models/post'
@@ -9,7 +9,7 @@ require_relative '../models/tag'
 
 binding.pry
 
-user = User.find_or_create_by_name(:name => "Dan",
+user = Author.find_or_create_by_name(:name => "Dan",
  :twitter => "@dansteele")
 
 user.posts << Post.find_or_create_by_title(:title => "We got coders",
