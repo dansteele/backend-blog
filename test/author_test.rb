@@ -140,7 +140,7 @@ describe "validations" do
     @author.password1 = "lolz"
     @author.password2 = "lolx"
     @author.valid?
-    @author.errors[password1].must_include "not match"
+    @author.errors[:password1].must_include "not match"
   end
 
 end
