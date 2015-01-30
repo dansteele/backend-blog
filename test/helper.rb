@@ -22,7 +22,7 @@ class MiniTest::Test
   def setup
     ActiveRecord::Base.establish_connection(
       :adapter => 'sqlite3',
-      :database => './database.db'
+      :database => './db/development.sqlite3'
     )
 
     DatabaseCleaner.strategy = :truncation, { :cache_tables => false } 

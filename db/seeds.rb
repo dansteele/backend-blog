@@ -7,7 +7,7 @@ require_relative '../models/post'
 require_relative '../models/post_tag'
 require_relative '../models/tag'
 
-binding.pry
+#binding.pry
 
 user = Author.find_or_create_by_name(:name => "Dan",
  :twitter => "@dansteele")
