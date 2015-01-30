@@ -2,6 +2,9 @@ require 'minitest/autorun'
 require 'active_record'
 require 'database_cleaner'
 require 'pry'
+require 'factory_girl'
+require 'faker'
+require_relative 'factories'
 
 # TODO - require your models here, e.g.
 require_relative '../models/author'
@@ -10,6 +13,8 @@ require_relative '../models/comment'
 require_relative '../models/image'
 require_relative '../models/post_tag'
 require_relative '../models/tag'
+require_relative '../models/send_sms'
+
 
 require_relative '../migrations/create_author'
 require_relative '../migrations/create_comment'
@@ -19,6 +24,7 @@ require_relative '../migrations/create_post_tag'
 require_relative '../migrations/create_tags'
 
 class MiniTest::Test
+  include FactoryGirl::Syntax::Methods
   def setup
     ActiveRecord::Base.establish_connection(
       :adapter => 'sqlite3',
