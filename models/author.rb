@@ -5,7 +5,7 @@ class Author < ActiveRecord::Base
   has_many :tags, :through => :posts
   belongs_to :image
 
-  validates :name, presence: true
-  
+  validates :name, {presence: true, length: { minimum: 11 }}
+
 
 end
