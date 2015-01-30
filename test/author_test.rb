@@ -86,61 +86,61 @@ describe "validations" do
   it "should validate the name is > 10 chars" do
     @author.name = "hi"
     @author.valid?
-    @author.errors[:name].must_include "is too short"
+    @author.errors[:name][0].must_include "is too short"
   end
 
   it "should check that twitter starts with @ symbol" do 
     @author.twitter = "dan"
     @author.valid?
-    @author.errors[:twitter].must_include "@"
+    @author.errors[:twitter][0].must_include "@"
   end
 
   it "should check email is > 5 letters and contains @" do
-    @author.email = "danno"
+    @author.email = "danno@hotmail.co.uk"
     @author.valid?
-    @author.errors[:email].must_include "short"
-    @author.errors[:email].must_include "@"
+    @author.errors[:email][0].must_include "short"
+    @author.errors[:email][0].must_include "@"
   end
 
 
   it "should check that the author's age is over 21 and < 65" do
     @author.dob = Date.new(1995,02,12)
     @author.valid?
-    @author.errors[:dob].must_include "young"
+    @author.errors[:dob][0].must_include "young"
     @author.dob = Date.new(1920,1,1)
     @author.valid?
-    @author.errord[:dob].must_include "old"
+    @author.errord[:dob][0].must_include "old"
   end
 
 
   it "should require a title and body > 20 words on post" do
     @post.valid?
-    @post.errors[:title].must_include "required"
-    @post.errors[:body].must_include "short"
+    @post.errors[:title][0].must_include "required"
+    @post.errors[:body][0].must_include "short"
   end
 
   it "should require 'name' on tag" do
     @tag.valid?
-    @tag.errors[:name].must_include "required"
+    @tag.errors[:name][0].must_include "required"
   end
 
   it "should make sure tag.name is one of 'Ruby, Rails, Databases, OOP, Patterns'" do
     @tag.name = "PHP"
     @tag.valid?
-    @tag.errors[:name].must_include "list"
+    @tag.errors[:name][0].must_include "list"
   end
 
   it "should confirm acceptance of T&Cs" do
     @author.tc = false
     @author.valid?
-    @author.errors[:tc].must_include "accept"
+    @author.errors[:tc][0].must_include "accept"
   end
 
   it "should confirm passwords match" do
     @author.password1 = "lolz"
-    @author.password2 = "lolx"
+    @author.password_confirmation = "lolx"
     @author.valid?
-    @author.errors[:password1].must_include "not match"
+    @author.errors[:password1][0].must_include "not match"
   end
 
 end
