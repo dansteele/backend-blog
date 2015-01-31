@@ -74,24 +74,23 @@ end
 describe "validations" do
   before do 
     @author = Author.new
+    @post = Post.new
+    @tag = Tag.new
     @author.name = "hi"
     @author.email = "dannohotmail.co.uk"
     @author.twitter = "dan"
     @author.dob = Date.new(1995,02,12)
-    @tag.name = "PHP"
     @author.tc = false
-    @author.password1 = "lolz"
+    @author.password = "lolz"
     @author.password_confirmation = "lolx"
-    @post = Post.new
-    @post.title = ""
     @post.body = "Herro"
-    @tag = Tag.new
+    @tag.name = "PHP"
     @author.valid?
     @tag.valid?
   end
 
   it "should validate the name" do
-    @author.errors[:name].must_include "can't be blank"
+    @author.errors[:name][0].must_include "is too short"
   end
 
   it "should validate the name is > 10 chars" do
@@ -99,12 +98,11 @@ describe "validations" do
   end
 
   it "should check that twitter starts with @ symbol" do 
-    @author.errors[:twitter][0].must_include "@"
+    @author.errors[:twitter][0].must_include "invalid format"
   end
 
   it "should check email is > 5 letters and contains @" do
-    @author.errors[:email][0].must_include "short"
-    @author.errors[:email][0].must_include "@"
+    @author.errors[:email][0].must_include "invalid email"
   end
 
 
@@ -117,12 +115,8 @@ describe "validations" do
 
   it "should require a title and body > 20 words on post" do
     @post.valid?
-    @post.errors[:title][0].must_include "required"
+    @post.errors[:title].must_include "can't be blank"
     @post.errors[:body][0].must_include "short"
-  end
-
-  it "should require 'name' on tag" do
-    @tag.errors[:name][0].must_include "required"
   end
 
   it "should make sure tag.name is one of 'Ruby, Rails, Databases, OOP, Patterns'" do

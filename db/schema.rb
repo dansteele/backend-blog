@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150130105852) do
+ActiveRecord::Schema.define(:version => 20150130171230) do
 
   create_table "comments", :force => true do |t|
     t.string  "body"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(:version => 20150130105852) do
     t.string  "email"
     t.text    "github"
     t.text    "dob"
-    t.text    "password1"
+    t.text    "password"
     t.text    "password2"
     t.boolean "tc"
   end
