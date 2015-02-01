@@ -26,8 +26,8 @@ class SendSms
   def send
     @client.account.messages.create({
       from: '+441173251885',
-      to: '+447572227006',
-      body: "Sent this from mah code. I love it, but I love you more! <3"
+      to: '+07875212508',
+      body: "Dear employer: call the above number to get in touch with me. - Dan"
     })
   end
 
