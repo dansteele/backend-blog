@@ -7,9 +7,9 @@ class Author < ActiveRecord::Base
 
   validates :name, {presence: true, length: { minimum: 4 }}
   validates :password, {presence: true, confirmation: true}
-  validates :password_confirmation, presence: true
-  
+  validates :tc, {presence: true, acceptance: true}
 
+ 
   validate :email_is_valid
   validate :twitter_starts_with_at
 

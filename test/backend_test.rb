@@ -124,11 +124,11 @@ describe "validations" do
   end
 
   it "should confirm acceptance of T&Cs" do
-    @author.errors[:tc][0].must_include "accept"
+    @author.errors[:tc][1].must_include "accepted"
   end
 
   it "should confirm passwords match" do
-    @author.errors[:password1][0].must_include "not match"
+    @author.errors[:password_confirmation][0].must_include "match Password"
   end
 
 end
