@@ -13,9 +13,10 @@ describe "Authors" do
     # CreateTag.new.up
 
 
-    @author = Author.new(:name => "Bob", :twitter => "@bob" )
+    @author = Author.new(:name => "Bobby", :twitter => "@bob", :email => "danielsteele@hotmail.co.uk",
+    :dob => Date.new(1991,02,12), :password => "lolz", :password_confirmation => "lolz", :tc => true )
     @tag = Tag.new(:name => "Ruby")
-    @post = Post.new(:body => "Hello", :title => "My first blog",
+    @post = Post.new(:body => "a a a a a a a a a a a a a a a a a a a a a a a a", :title => "My first blog",
       :author_id => @author.id)
     @comment = Comment.new(:body => "This system sucks", :kudos => 0,
       :author_id => @author.id, :post => @post)
