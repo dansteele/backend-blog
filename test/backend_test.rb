@@ -107,9 +107,9 @@ describe "validations" do
 
 
   it "should check that the author's age is over 21 and < 65" do
-    @author.errors[:dob][0].must_include "young"
+    @author.errors[:dob][0].must_include "boundaries"
     @author.dob = Date.new(1920,1,1)
-    @author.errord[:dob][0].must_include "old"
+    @author.errors[:dob][0].must_include "boundaries"
   end
 
 

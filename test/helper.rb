@@ -1,4 +1,5 @@
 require 'minitest/autorun'
+require 'date'
 require 'active_record'
 require 'database_cleaner'
 require 'pry'
