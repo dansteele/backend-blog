@@ -23,13 +23,13 @@ class SendSms
   end
 
 
-  def send
-    @client.account.messages.create({
-      from: '+441173251885',
-      to: '+44875212508',
-      body: "Dear employer: call the above number to get in touch with me. - Dan"
-    })
-  end
+  # def send
+  #   @client.account.messages.create({
+  #     from: '+441173251885',
+  #     to: '+44875212508',
+  #     body: "Dear employer: call the above number to get in touch with me. - Dan"
+  #   })
+  # end
 
 
 
