@@ -6,6 +6,12 @@ module BackendBlog
 
     enable :sessions
 
+    before do
+        unless session[:logged_in] || env["REQUEST_PATH"] == "/login" ||
+          env["REQUEST_PATH"] == "/signup"
+          redirect url_for(:security, :login)
+        end
+    end
     ##
     # Caching support.
     #
