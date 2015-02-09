@@ -1,11 +1,39 @@
-<% @author.posts.each do |p| %>
-  <div class="post">
-    <h4><%=p.title%></h4>
-    <p><%= p.body %></p>
-  </div>
-<% end %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Post list</title>
+</head>
+<body>
 
+<h2>List of posts for <%= @author.name %></h2>
 
+<table>
+  <tr>
+    <% @posts.first.attributes.keys.each do |header| %>
+      <th>
+      <%= header %>
+      </th>
+    <% end %>
+  </tr>
+
+  <% @posts.each do |post| %>
+    <tr>
+    <% post.attributes.values.each_with_index do |value, index| %>
+      <td>
+        
+      <% if index == 2%>
+        <%= link_to value, url_for(:posts, :show, :id => post.id, :author_id => @author.id )%>
+      <% else %>
+        <%= value %>
+      <% end %>
+      </td>
+    <% end %> 
+    </tr>
+    <% end %>
+</table>
+
+<br>
+<br>
 <h3>New Post</h3>
 
 <% form_for @post, url_for(:posts, :create, :author_id => @author.id) do |f| %>
@@ -23,3 +51,6 @@
   <% end %>
 
 <% end %>
+
+</body>
+</html>

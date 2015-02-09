@@ -2,12 +2,15 @@ BackendBlog::App.controllers :posts, :parent => :authors do
 
   get :index do
     @author = Author.find(params[:author_id])
+    @posts = @author.posts
     @post = Post.new(:author_id => @author.id)
     render :index
   end
 
   get :show, :map => '', :with => :id do
-
+    @author = Author.find(params[:id])
+    @posts = @author.posts
+    render :post_list
   end
     
   post :create, :map => ''  do

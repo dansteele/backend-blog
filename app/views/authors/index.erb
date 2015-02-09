@@ -19,7 +19,7 @@
       <td>
         
       <% if index == 1%>
-        <%= link_to value, url_for(:authors, :show, :id => person.id )%>
+        <%= link_to value, url_for(:posts, :show, :id => person.id )%>
       <% else %>
         <%= value %>
       <% end %>

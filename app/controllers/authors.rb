@@ -7,8 +7,7 @@ BackendBlog::App.controllers :authors do
 
   get :show, :map => '', :with => :id do
     @author = Author.find(params[:id])
-    @posts = @author.posts
-    render :post_list
+    render :author_info
   end
     
   post :create, :map => ''  do

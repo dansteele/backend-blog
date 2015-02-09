@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @author.name %></title>
+</head>
+<body>
+<h2><%= @author.name %></h2>
+
+<br>
+
+<%= link_to "View posts", url_for(:posts, :index, :author_id => @author.id) %>
+
+</body>
+</html>
