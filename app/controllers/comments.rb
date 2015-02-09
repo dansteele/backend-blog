@@ -24,6 +24,10 @@ BackendBlog::App.controllers :comments, :parent => {:authors => :posts} do
     render :by_author
   end
 
+  get :new, :map => '' do
+    
+  end
+
   post :create, :map => ''  do
     
   end
