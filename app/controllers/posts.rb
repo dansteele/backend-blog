@@ -8,9 +8,10 @@ BackendBlog::App.controllers :posts, :parent => :authors do
   end
 
   get :show, :map => '', :with => :id do
-    @author = Author.find(params[:id])
+    @author = Author.find(params[:author_id])
+    @post = Post.find(params[:id])
     @posts = @author.posts
-    render :post_list
+    render :show
   end
     
   post :create, :map => ''  do
