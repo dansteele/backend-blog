@@ -9,6 +9,7 @@
 <br>
 
 <%= link_to "View posts", url_for(:posts, :index, :author_id => @author.id) %>
+<%= link_to "View comments", url_for(:comments, :by_author, :author_id => @author.id, :post_id => 0) %>
 
 </body>
 </html>

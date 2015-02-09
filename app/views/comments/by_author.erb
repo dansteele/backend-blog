@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @author.name %>'s comments</title>
+</head>
+<body>
+
+<h2><%= @author.name %>'s comments</h2>
+
+<% if @comments %>
+  <% @comments.each do |comment| %>
+    <p><%=comment.post.title%>
+    <%=comment.body%></p>
+  <% end %>
+<% else %>
+  Nothing here yet!
+<% end %>
+
+</body>
+</html>

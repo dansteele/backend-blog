@@ -13,11 +13,17 @@ BackendBlog::App.controllers :comments, :parent => {:authors => :posts} do
     end
   end
 
-  get :show, :map => '', :with => :id do
+  get :show, :map => '' do
     
     render :show
   end
     
+  get :by_author do
+    @author = Author.find(params[:author_id])
+    @comments = Comment.where("author_id = ?", [@author.id])
+    render :by_author
+  end
+
   post :create, :map => ''  do
     
   end
