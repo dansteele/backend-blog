@@ -6,11 +6,11 @@ class Post < ActiveRecord::Base
   has_many :tags, :through => :post_tags
 
   validates :title, presence: true
-  validate :body_longer_than_20_words
+  validate :body_longer_than_5_words
 
-  def body_longer_than_20_words
+  def body_longer_than_5_words
     split_body = body.split(" ")
-    unless split_body.length > 20 
+    unless split_body.length > 5
       errors.add(:body, "Post is too short.")
     end
   end

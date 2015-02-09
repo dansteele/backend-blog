@@ -28,6 +28,8 @@ gem 'padrino', '0.12.4'
 gem "factory_girl"
 gem "faker"
 gem 'twilio-ruby', '~> 3.12'
+gem 'database_cleaner'
+gem "pry"
 
 
 # Or Padrino Edge

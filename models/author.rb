@@ -11,7 +11,7 @@ class Author < ActiveRecord::Base
 
   validate :email_is_valid
   validate :twitter_starts_with_at
-  validate :age_is_within_limits
+  #validate :age_is_within_limits
 
   def age_is_within_limits
     today = Date.today
