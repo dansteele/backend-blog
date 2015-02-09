@@ -4,6 +4,7 @@ BackendBlog::App.controllers :posts, :parent => :authors do
     @author = Author.find(params[:author_id])
     @posts = @author.posts
     @post = Post.new(:author_id => @author.id)
+    @message = flash[:no_comments]
     render :index
   end
 

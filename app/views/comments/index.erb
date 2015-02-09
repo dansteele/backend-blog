@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Comments for <%= @post.title %></title>
+</head>
+<body>
+<% @comments.each do |comment| %>
+<p>
+  <%= comment.author.name %> says: <br>
+  <%= comment.body %>
+</p>
+<% end %>
+</body>
+</html>

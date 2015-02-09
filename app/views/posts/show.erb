@@ -9,6 +9,14 @@
 <%= @post.body %>
 <br>
 <br>
+  <% if @post.comments %>
+    <% @post.comments.each do |comment| %>
+      <%= comment.author.name %><br>
+      <%= comment.body %>
+    <% end %>
+  <%end%>
+<br>
+<br>
 See other posts by <%= @author.name%> : <br>
 <% @posts.each do |post| %>
   <%= link_to post.title, url_for(:posts, :show, :id => post.id,
