@@ -6,6 +6,10 @@
 <body>
 <h2><%= @author.name %></h2>
 
+<% if @message %>
+  <%= @message %>
+<% end %>
+
 <br>
 
 <%= link_to "View posts", url_for(:posts, :index, :author_id => @author.id) %>

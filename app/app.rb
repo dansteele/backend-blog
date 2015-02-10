@@ -7,9 +7,9 @@ module BackendBlog
     enable :sessions
 
     before do
-        unless session[:logged_in] || env["REQUEST_PATH"] == "/login" ||
-          env["REQUEST_PATH"] == "/signup"
-          redirect url_for(:security, :login)
+        unless session[:logged_in] || env["REQUEST_PATH"] == "/logins/login" ||
+          env["REQUEST_PATH"] == "/logins/signup"
+          redirect url_for(:logins, :login)
         end
     end
     ##

@@ -6,6 +6,7 @@ BackendBlog::App.controllers :authors do
   end
 
   get :show, :map => '', :with => :id do
+    @message = flash[:error]
     @author = Author.find(params[:id])
     render :author_info
   end

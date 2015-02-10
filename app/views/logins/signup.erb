@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign up</title>
+</head>
+<body>
+
+<% if @message %>
+  <p><%=@message%></form>
+<% end %>
+
+<% form_for :author, url_for( :logins, :signup) do |form|%>  
+
+  <% field_set_tag do %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  <% end %>
+
+  <% field_set_tag do %>
+    <%= form.label :username %>
+    <%= form.text_field :username %>
+  <% end %>
+
+
+  <% field_set_tag do %>
+    <%= form.label :password %>
+    <%= form.text_field :password %>
+  <% end %>
+
+  <% field_set_tag do %>
+    <%= form.label :password_confirmation %>
+    <%= form.text_field :password_confirmation %>
+  <% end %>
+
+  <% field_set_tag do %>
+    <%= form.label :twitter %>
+    <%= form.text_field :twitter %>
+  <% end %>
+
+  <% field_set_tag do %>
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  <% end %>
+  
+  <% field_set_tag do %>
+    <%= form.label :tc %>
+    <%= form.check_box :tc %>
+  <% end %>
+
+  <%= submit_tag "Save" %>
+
+<%end%>
+</body>
+</html>

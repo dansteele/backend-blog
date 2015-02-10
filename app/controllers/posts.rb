@@ -3,6 +3,10 @@ BackendBlog::App.controllers :posts, :parent => :authors do
   get :index do
     @author = Author.find(params[:author_id])
     @posts = @author.posts
+    unless @posts.length > 0
+      flash[:error] = "Author has no posts yet."
+      redirect url_for(:authors, :show, :id => @author.id)
+    end
     @post = Post.new(:author_id => @author.id)
     @message = flash[:no_comments]
     render :index
